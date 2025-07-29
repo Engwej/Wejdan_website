@@ -1,0 +1,181 @@
+<!DOCTYPE html> 
+<html lang="en" data-theme="light"> 
+<head> 
+<meta charset="UTF-8" /> 
+<title>Wejdan Eqbal Alotaibi | Personal Website</title> 
+<style> 
+:root { --bg: #f0f2f5; --fg: #111; --card: #fff; --link: #0077cc; --btn: #0077cc; --btn-hover: #005fa3; 
+} 
+html[data-theme="dark"] { --bg: #121212; --fg: #f0f0f0; --card: #1f1f1f; 
+      --link: #9ecbff; 
+      --btn: #2a6ad9; 
+      --btn-hover: #1a4ea5; 
+    } 
+ 
+    body { 
+      font-family: 'Segoe UI', sans-serif; 
+      background: var(--bg); 
+      color: var(--fg); 
+      text-align: center; 
+      margin: 0; 
+      padding: 20px; 
+      transition: background 0.3s, color 0.3s; 
+    } 
+ 
+    .container { 
+      max-width: 700px; 
+      background: var(--card); 
+      margin: 0 auto; 
+      padding: 40px; 
+      border-radius: 12px; 
+      box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+      transition: background 0.3s, color 0.3s; 
+    } 
+ 
+    .logo { 
+      width: 110px; 
+      height: auto; 
+      margin-bottom: 20px; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+      transition: transform 0.3s; 
+    } 
+ 
+    .logo:hover { 
+      transform: scale(1.05); 
+    } 
+ 
+    h1 { 
+      font-size: 28px; 
+      margin: 10px 0; 
+    } 
+ 
+    p { 
+      font-size: 16px; 
+      line-height: 1.6; 
+    } 
+ 
+    h2 { 
+      margin-top: 30px; 
+    } 
+ 
+    ul { 
+      list-style: none; 
+      padding: 0; 
+    } 
+ 
+    a { 
+      color: var(--link); 
+      text-decoration: none; 
+    } 
+ 
+    button { 
+      margin: 10px 8px 20px 8px; 
+      padding: 10px 18px; 
+      border: none; 
+      background: var(--btn); 
+      color: white; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      font-size: 16px; 
+      transition: background 0.3s; 
+    } 
+ 
+    button:hover { 
+      background: var(--btn-hover); 
+    } 
+ 
+    #cvSection { 
+      text-align: left; 
+      margin-top: 30px; 
+      display: none; 
+    } 
+ 
+    #cvSection p { 
+      line-height: 1.6; 
+      margin-bottom: 10px; 
+    } 
+ 
+    @media (max-width: 600px) { 
+      .container { 
+        padding: 20px; 
+      } 
+      h1 { 
+        font-size: 24px; 
+      } 
+    } 
+  </style> 
+</head> 
+<body> 
+ 
+  <div class="container"> 
+    <img src="https://i.postimg.cc/wM3Hy5ZJ/smartmethods-logo-jpg.jpg" 
+alt="Smart Methods Logo" class="logo"> 
+ 
+    <h1>Hi, I'm Wejdan Eqbal Alotaibi</h1> 
+    <p>A Computer Science student at Taif University.</p> 
+ 
+    <h2>About Me</h2> 
+    <p>I love web development and enjoy creating elegant websites with 
+clean code. I’m currently learning advanced web technologies and building 
+real-world projects.</p> 
+ 
+    <h2>Contact</h2> 
+    <ul> 
+      <li>Email: wejdan@example.com</li> 
+      <li>GitHub: <a href="https://github.com/wejdan" 
+target="_blank">github.com/wejdan</a></li> 
+    </ul> 
+ 
+    <button id="modeBtn">Dark Mode</button> 
+    <button id="cvBtn">View CV</button> 
+ 
+    <div id="cvSection"> 
+      <h2>Curriculum Vitae</h2> 
+      <p><strong>Name:</strong> Wejdan Eqbal Alotaibi</p> 
+      <p><strong>Education:</strong> BSc in Computer Science, Taif 
+University</p> 
+      <p><strong>Skills:</strong> HTML, CSS, JavaScript, PHP, MySQL, 
+Python</p> 
+      <p><strong>Experience:</strong> Participated in Smart Methods 
+internship program</p> 
+      <p><strong>Certifications:</strong> ICDL, Web Design Essentials</p> 
+    </div> 
+  </div> 
+ 
+  <script> 
+    // Theme toggle 
+    const btn = document.getElementById('modeBtn'); 
+    const THEME_KEY = 'theme'; 
+ 
+    function applyTheme(t) { 
+      document.documentElement.setAttribute('data-theme', t); 
+      btn.textContent = t === 'dark' ? 'Light Mode' : 'Dark Mode'; 
+    } 
+ 
+    applyTheme(localStorage.getItem(THEME_KEY) || 'light'); 
+ 
+    btn.addEventListener('click', () => { 
+      const current = document.documentElement.getAttribute('data-theme'); 
+      const next = current === 'dark' ? 'light' : 'dark'; 
+      applyTheme(next); 
+      localStorage.setItem(THEME_KEY, next); 
+    }); 
+ 
+    // CV toggle 
+    const cvBtn = document.getElementById('cvBtn'); 
+    const cvSection = document.getElementById('cvSection'); 
+ 
+    cvBtn.addEventListener('click', () => { 
+      if (cvSection.style.display === "none") { 
+        cvSection.style.display = "block"; 
+        cvBtn.textContent = "Hide CV"; 
+      } else { 
+        cvSection.style.display = "none"; 
+        cvBtn.textContent = "View CV"; 
+      } 
+    }); 
+  </script> 
+ 
+</body> 
+</html>
